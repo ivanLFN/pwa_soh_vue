@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="home-el">
-      <div class="image-info" :class="{ 'hidden': !showImageInfo }">
+      <div class="image-info" :class="{ 'hidden': !visibleElements.imageInfo }">
         <img src="/img/info-icon.png" alt="info-icon">
         <div style="margin-top: 40px;">Нет действующей</div>
         <div style="margin-top: -10px;">сессии</div>
         <div style="margin-top: 20px;">Начать?</div>
       </div>
-      <div class="new-session-info pt-5" v-if="!showImageInfo">
+      <div class="new-session-info pt-5" v-if="visibleElements.newSessionInfo">
         <img src="/img/enter-code.png" style="width: 4rem;" alt="info-icon">
         <div style="margin-top: 30px; margin-bottom: 30px;">Введите номер станции</div>
         <div class="enter-block col-12 d-flex justify-content-center align-items-center">
@@ -18,11 +18,12 @@
                 <img src="/img/arrow-input.png" alt="info-icon">
               </button>
             </div>
-          </div>  
+          </div>
         </div>
-
-        
-        
+        <div class="map">Или выберете на <a class="map-link" href="#" @click="toggleMapComponent">карте</a></div>
+      </div>
+      <div class="map-page pt-5" v-if="visibleElements.twoGisMap">
+        <MapComponent />
       </div>
     </div>
     <div class="new-session">
@@ -49,20 +50,43 @@
 </template>
 
 <script>
+import MapComponent from './MapComponent.vue';
 export default {
   name: 'MainPage',
+  components: {
+    MapComponent
+  },
   data() {
     return {
-      showImageInfo: true,
-      numericValue: '',
+      visibleElements: {
+        imageInfo: true,
+        newSessionInfo: false,
+        twoGisMap: false
+      },
+      numericValue: ''
     };
   }, 
   methods: {
-    toggleImageInfo() {
-      this.showImageInfo = !this.showImageInfo;
-    },
-    restrictInput() {
+    restrictInput () {
       this.numericValue = this.numericValue.replace(/[^0-9]/g, '');
+    },
+    toggleImageInfo () {
+      if (this.visibleElements.imageInfo == true) {
+        this.hideAllComponents()
+        this.visibleElements.newSessionInfo = true
+      } else {
+        this.hideAllComponents()
+        this.visibleElements.imageInfo = true
+      }
+    },
+    toggleMapComponent() {
+      this.hideAllComponents()
+      this.visibleElements.twoGisMap = true
+    },
+    hideAllComponents() {
+      for (let key in this.visibleElements) {
+        this.visibleElements[key] = false;
+      }
     }
   }
 }
@@ -105,10 +129,17 @@ export default {
   margin-top: 60px;
   margin-bottom: 80px;
   font-size: 1.9rem;
+  padding-bottom: 110px;
 }
 
 .new-session-info {
   font-size: 1.9rem;
+  padding-bottom: 110px;
+
+}
+
+.map-page {
+  padding-bottom: 0px;
 }
 
 .hidden {
@@ -125,6 +156,15 @@ export default {
 
 .form-control {
   font-size: 2rem;
+}
+
+.map {
+  margin-bottom: 100px;
+  margin-top: 40px;
+}
+
+.map-link {
+  color: #1fc4c2;
 }
 </style>
   
