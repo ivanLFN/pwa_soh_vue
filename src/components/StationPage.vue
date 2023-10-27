@@ -52,10 +52,10 @@
         </div>
       </div>
       <div class="count-min mt-3">
-        <div class="text-input">
+        <div class="text-input mb-2">
           Планируемое время (мин):
         </div>
-        <div class="enter-block col-12 d-flex justify-content-center align-items-center">
+        <div class="enter-block col-12 d-flex justify-content-center align-items-center mb-3">
             <div class="col-10">
               <div class="input-group mb-3 enter-code">
                 <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="button-addon2" v-model="numericValue" @input="restrictInput">
@@ -162,12 +162,9 @@ export default {
   margin-right: 1rem !important;
   border-radius: 30px;
   padding: 10px;
+  padding-bottom: 10px;
   border: 1px solid #d8d8d8;
 }
-
-
-
-
 
 .bottom-bar {
   position: fixed;
