@@ -34,9 +34,9 @@
     <div class="bar">
       <row>
         <div class="home bottom-bar d-flex justify-content-center align-items-center" style="left: 0; border-radius: 0 100px 0 0;">
-          <a href="#">
+          <router-link to="/">
             <img src="/img/home-icon.png" alt="logo-link" class="img-settings" style="width: 3.3rem;"/>
-          </a>
+          </router-link>
           
         </div>
         <div class="menu bottom-bar d-flex justify-content-center align-items-center" style="right: 0; border-radius: 100px 0 0 0;">

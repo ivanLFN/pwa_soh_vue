@@ -3,11 +3,11 @@ import App from './App.vue'
 import './assets/global.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import { VueQrcodeReader } from 'vue-qrcode-reader'
+import router from '../routes.js'
 
 
 const app = createApp(App)
 
-app.use(VueQrcodeReader)
+app.use(router)
 
 app.mount('#app')
