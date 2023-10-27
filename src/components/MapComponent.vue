@@ -50,22 +50,36 @@ export default {
                             <div style="background-color: #1fc4c2; color: white; border-radius: 50%; width: 30px; height: 30px; text-align: center; line-height: 30px;">
                                 ${markerInfo.number}
                             </div>
-                        `
-                    });
+                            `
+                        });
+
                     const popupContent = `
                         №${markerInfo.number}<br>
                         ${markerInfo.socket}<br>
                         ${markerInfo.status}<br>
-                        <a style="font-size: 1.8rem; text-decoration: none; color: #1fc4c2" class="popup-link" href="station?num=${markerInfo.number}">Выбрать</a>
+                        <a
+                            style="font-size: 1.8rem; text-decoration: none; color: #1fc4c2"
+                            class="popup-link"
+                            href="station?num=${markerInfo.number}"
+                            data-number="${markerInfo.number}"
+                            @click="getStation"
+                        >
+                            Выбрать
+                        </a>
                     `;
+
                     DG.marker([markerInfo.lat, markerInfo.lng], { icon: customIcon })
                         .addTo(this.map)
                         .bindPopup(popupContent);
-                        this.selectedTest = popupContent
+                    });
                 });
-            });
         },
         /* eslint-enable no-undef */
+         getStation() {
+            const number = event.target.getAttribute('data-number');
+            console.log(`Метод getStation() с номером станции ${number} сработал`);
+        },
+        
     },
 };
 </script>
