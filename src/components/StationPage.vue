@@ -51,6 +51,21 @@
           {{ station.cost }}
         </div>
       </div>
+      <div class="count-min mt-3">
+        <div class="text-input">
+          Планируемое время (мин):
+        </div>
+        <div class="enter-block col-12 d-flex justify-content-center align-items-center">
+            <div class="col-10">
+              <div class="input-group mb-3 enter-code">
+                <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="button-addon2" v-model="numericValue" @input="restrictInput">
+                <button class="btn btn-outline-secondary button-style" type="button" id="button-addon2">
+                  <img src="/img/arrow-input.png" alt="info-icon">
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
     <div class="new-session">
       <a href="#" class="img-new-session">
@@ -141,4 +156,72 @@ export default {
   border: 1px solid #d8d8d8;
   border-radius: 30px;
 }
+
+.count-min {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+  border-radius: 30px;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+}
+
+
+
+
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  width: 150px;
+  height: 100px;
+  background-color: white;
+  color: #fff;
+  box-shadow: 0px -10px 15px rgba(116, 116, 116, 0.7);
+}
+
+.home-el {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 55%;
+  background-color: rgb(252, 252, 252);
+  border-radius: 30px 30px 0 0;
+  box-shadow: 0px -10px 15px rgba(116, 116, 116, 0.7);
+  left: 0;
+}
+.new-session {
+  background-color: white;
+  padding: 10px;
+  width: 120px;
+  border-radius: 150px;
+  box-shadow: 0px -5px 10px rgba(116, 116, 116, 0.7);
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image-info {
+  margin-top: 60px;
+  margin-bottom: 80px;
+  font-size: 1.9rem;
+  padding-bottom: 110px;
+}
+
+.enter-code {
+  height: 40px;
+}
+
+.button-style {
+  background-color: #1fc4c2;
+}
+
+.form-control {
+  font-size: 2rem;
+}
+
+.text-input {
+  font-size: 1.5rem;
+}
+
 </style>
