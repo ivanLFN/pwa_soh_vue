@@ -119,7 +119,7 @@ export default {
 
 .home-el {
   position: fixed;
-  padding-bottom: 14rem !important;
+  padding-bottom: 13rem !important;
   bottom: 0;
   width: 100%;
   min-height: 55%;
