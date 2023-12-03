@@ -3,6 +3,7 @@ import MainPage from './src/components/MainPage.vue'
 import StationPage from './src/components/StationPage.vue'
 import LoginPage from './src/components/LoginPage.vue'
 import SignUpPage from './src/components/SignUpPage.vue'
+import SmsCodePage from './src/components/SmsCodePage.vue'
 
 const routes = [
   {
@@ -21,6 +22,10 @@ const routes = [
   {
     path: '/sign_up',
     component: SignUpPage
+  },
+  {
+    path: '/sms_code',
+    component: SmsCodePage
   }
 ];
 
