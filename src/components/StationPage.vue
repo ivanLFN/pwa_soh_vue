@@ -7,7 +7,7 @@
             src="/img/back-btn.png"
             alt="logo-link" 
             class="ml-5"
-            style="width: 3rem;"/>
+            style="width: 2rem;"/>
         </div>
       </router-link>
       <div>
